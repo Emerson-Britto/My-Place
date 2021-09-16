@@ -253,4 +253,5 @@ export default {
       transform: rotateX(60deg);
     }
 }
+
 </style>
