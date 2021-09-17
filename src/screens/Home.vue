@@ -1,9 +1,5 @@
 <template>
     <section class="section_home">
-        <audio @load="$event.target.play()" src="https://firebasestorage.googleapis.com/v0/b/musiky-9df07.appspot.com/o/background-song_emerson_britto.mp3?alt=media&token=bbbf2184-b6cf-45eb-a3e6-3c78f20a6acf" :autoplay='1' :loop='1'></audio>
-        <aside class="vertical_NavBar">
-            <img src="">
-        </aside>
         <section class="main_content">
             <section class="presentation">
                 <p id="field_greeting">Good Morning!</p>
@@ -46,20 +42,9 @@ export default {
 .section_home {
     display: flex;
     background: linear-gradient(180deg, #03020E, #000008);
+    width: 96.5vw;
     height: 100vh;
     overflow-x: hidden;
-}
-
-.vertical_NavBar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(0 0 0 / 40%);
-    border-right: 2px solid;
-    border-image: linear-gradient(180deg, #000, #000091, #000)1;
-    width: 3.5vw;
-    height: 100vh;
 }
 
 .main_content {
@@ -106,6 +91,7 @@ export default {
 
 #btn_getCV {
     background-color: #0000B9;
+    border: 2px solid #0000B9;
     margin-right: 20px;
 }
 
@@ -115,11 +101,12 @@ export default {
 }
 
 #btn_viewTheProject {
-    background-color: #2E34C1;
+    background-color: transparent;
+    border: 2px solid #2E34C1;
 }
 
 #btn_viewTheProject:hover {
-    background-color: #2E297A;
+    background-color: #2E34C1;
 }
 
 .container_animations {

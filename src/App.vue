@@ -1,12 +1,24 @@
 <template>
-	<div>
-		<router-view></router-view>	
-	</div>
+	<section>
+		<audio @load="$event.target.play()" src="https://firebasestorage.googleapis.com/v0/b/musiky-9df07.appspot.com/o/background-song_emerson_britto.mp3?alt=media&token=bbbf2184-b6cf-45eb-a3e6-3c78f20a6acf" :autoplay='1' :loop='1'></audio>
+		<Header></Header>
+		<main id="main_container">
+			<VerticalNavBar></VerticalNavBar>
+			<router-view></router-view>				
+		</main>
+	</section>
 </template>
 
 <script>
+import Header from './components/header.vue'
+import VerticalNavBar from './components/verticalNavBar.vue'
 
 export default {
+
+	components: {
+		Header,
+		VerticalNavBar
+	}
 
 }
 
@@ -20,11 +32,25 @@ export default {
 }
 
 html {
-	background-color: black;
+	font-family: 'Montserrat', sans-serif;
+	background-color: #000;
 }
 
 h1 {
-	color: white;
+	color: #fff;
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
+button {
+	border: none;
+}
+
+#main_container {
+	display: flex;
 }
 
 </style>

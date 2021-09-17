@@ -30,7 +30,7 @@ export default {
         background: linear-gradient(#0041D3, #00DAEB, #9344AF, #0041D3);
         animation: animate 1s linear infinite;
     }
-
+/*
     @keyframes animate {
         from {
             transform: rotate(0deg);
@@ -38,7 +38,7 @@ export default {
         to {
             transform: rotate(360deg);
         }
-    }
+    }*/
 
     .ring span:nth-child(1) {
         filter: blur(5px);
