@@ -1,8 +1,8 @@
 <template>
 	<aside class="vertical_NavBar">
-		<button class="btn_navBar"><img class="navIcon-active" src="../assets/icons/home_white_24dp.svg"></button>
-		<button class="btn_navBar"><img class="navIcon" src="../assets/icons/apps_white_24dp.svg"></button>
-		<button class="btn_navBar"><img class="navIcon" src="../assets/icons/person_white_24dp.svg"></button>
+		<router-link to='/'><button class="btn_navBar"><img class="navIcon-active" src="../assets/icons/home_white_24dp.svg"></button></router-link>
+		<router-link to='/projects'><button class="btn_navBar"><img class="navIcon" src="../assets/icons/apps_white_24dp.svg"></button></router-link>
+		<router-link to='/profile'><button class="btn_navBar"><img class="navIcon" src="../assets/icons/person_white_24dp.svg"></button></router-link>
 	</aside>
 </template>
 

@@ -26,7 +26,7 @@ import Cubes from '../components/floating-cubes.vue'
 import Ring from '../components/colored-ring.vue'
 
 export default {
-	name: 'Projects',
+	name: 'Home',
 
     components: {
         Cubes,
@@ -44,7 +44,6 @@ export default {
     background: linear-gradient(180deg, #03020E, #000008);
     width: 96.5vw;
     height: 100vh;
-    overflow-x: hidden;
 }
 
 .main_content {
