@@ -2,9 +2,9 @@
 	<section class="section_project">
 		<ProjectsFilter id="projectsFilter"></ProjectsFilter>
 		<section id="projects_list">
-			<section class="projects">
-				<FieldUsedTools :toolsList="projects[0].usedTools"></FieldUsedTools>
-				<ProjectView></ProjectView>
+			<section class="projects" :key="index" v-for="(project, index) in projects">
+				<FieldUsedTools :toolsList="project.usedTools"></FieldUsedTools>
+				<ProjectView :project="project.projectView"></ProjectView>
 			</section>
 		</section>
 	</section>
@@ -22,13 +22,27 @@ export default {
 		return {
 			projects: [{
 				usedTools: ['react', 'vue'],
-				imgPreview: '../assets/imgs/musikyPreview.png',
-				projTitle: 'Musiky',
-				lastUpdate: '21/09/2001',
-				description: 'a project demo, yet...',
-				permissions: {
-					viewCode: true,
-					viewOnline: true
+				projectView: {
+					imgPreview: '../assets/imgs/musikyPreview.png',
+					projTitle: 'Musiky - Project',
+					lastUpdate: '21/09/2001',
+					description: 'a project demo, yet...',
+					permissions: {
+						viewCode: true,
+						viewOnline: true
+					}					
+				}
+			},{
+				usedTools: ['react', 'angular'],
+				projectView: {
+					imgPreview: '/static/musikyPreview.png',
+					projTitle: 'Musiky - Project',
+					lastUpdate: '21/09/2001',
+					description: 'a project demo, yet...',
+					permissions: {
+						viewCode: true,
+						viewOnline: true
+					}					
 				}
 			}]
 		}
@@ -68,7 +82,7 @@ export default {
 .projects {
 	display: flex;
 	justify-content: space-around;
-	margin: 10px 0;
+	margin: 40px 0;
 	width: 100%;
 	height: 230px;
 	color: #fff;

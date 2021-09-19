@@ -1,11 +1,11 @@
 <template>
 	<div id="filter_Projects">
-		<button class="filter_btns">All</button>
-		<button class="filter_btns filter_btns-active">React</button>
+		<button class="filter_btns filter_btns-active">All</button>
+		<button class="filter_btns">React</button>
 		<button class="filter_btns">Python</button>
-		<button class="filter_btns filter_btns-active">Javascript</button>
+		<button class="filter_btns">Javascript</button>
 		<button class="filter_btns">Typescript</button>
-		<button class="filter_btns filter_btns-active">Angular</button>
+		<button class="filter_btns">Angular</button>
 	</div>
 </template>
 

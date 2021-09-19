@@ -1,15 +1,15 @@
 <template>
 	<div class="projects_view">
 		<div class="img_container">
-			<img class="project_preview" src="../assets/imgs/musikyPreview.png">
+			<img class="project_preview" :src="project.imgPreview">
 		</div>
 		<div class="projects_infors">
-			<h2 class="projects_title">Project Musiky Site</h2>
-			<p class="field_lastUpdate-tool">Last Update: 24/07/2021</p>
-			<p class="projects_description">a project created only for test</p>
+			<h2 class="projects_title">{{ project.projTitle }}</h2>
+			<p class="field_lastUpdate-tool">Last Update: {{ project.lastUpdate }}</p>
+			<p class="projects_description">{{ project.description }}</p>
 			<section>
-				<button class="goProject_btn">View Code</button>
-				<button class="goProject_btn">View Online</button>
+				<button class="goProject_btn" v-show="project.permissions.viewCode">View Code</button>
+				<button class="goProject_btn" v-show="project.permissions.viewOnline">View Online</button>
 			</section>
 		</div>
 	</div>
@@ -20,6 +20,10 @@
 export default {
 	name: 'ProjectsView',
 
+    props: {
+
+        project: Object
+    }
 }
 
 </script>

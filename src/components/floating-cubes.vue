@@ -195,7 +195,7 @@ export default {
     transform: rotateX(-90deg) translateZ(50px);
     color: #EC4D28;
 }
-/*
+
 @keyframes spincube {
     from,
     to {
@@ -252,6 +252,6 @@ export default {
       -ms-transform: rotateX(60deg);
       transform: rotateX(60deg);
     }
-}*/
+}
 
 </style>

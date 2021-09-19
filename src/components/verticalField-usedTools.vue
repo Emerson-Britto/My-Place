@@ -1,22 +1,15 @@
 <template>
 	<div class="field_usedTools" >
 		<div :key="index" v-for="(tool, index) in toolsList" class="usedTools">
-			<img :src="icon[tool]">
+			<img :src="`https://raw.githubusercontent.com/Emerson-Britto/API-Musiky/main/dataBase/imgs/icons/${tool}Icon.png`">
 		</div>
 	</div>
 </template>
 
 <script>
-import { icon } from '../scripts/transformFromStringToIcon.js'
 
 export default {
 	name: 'Projects',
-
-	data() {
-		return {
-			icon
-		}
-	},
 
     props: {
 
