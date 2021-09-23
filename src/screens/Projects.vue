@@ -1,6 +1,10 @@
 <template>
 	<section class="section_project">
-		<ProjectsFilter id="projectsFilter"></ProjectsFilter>
+		<ProjectsFilter 
+			id="projectsFilter" 
+			@updatelist="newList => this.filterList = newList" 
+			:filterList="filterList">
+		</ProjectsFilter>
 		<section id="projects_list">
 			<section class="projects" :key="index" v-for="(project, index) in projects">
 				<FieldUsedTools :toolsList="project.usedTools"></FieldUsedTools>
@@ -20,6 +24,7 @@ export default {
 
 	data() {
 		return {
+			filterList: [],
 			projects: [{
 				usedTools: ['react', 'vue'],
 				projectView: {
@@ -27,22 +32,8 @@ export default {
 					projTitle: 'Musiky - Project',
 					lastUpdate: '21/09/2001',
 					description: 'a project demo, yet...',
-					permissions: {
-						viewCode: true,
-						viewOnline: true
-					}					
-				}
-			},{
-				usedTools: ['react', 'angular'],
-				projectView: {
-					imgPreview: '/static/musikyPreview.png',
-					projTitle: 'Musiky - Project',
-					lastUpdate: '21/09/2001',
-					description: 'a project demo, yet...',
-					permissions: {
-						viewCode: true,
-						viewOnline: true
-					}					
+					repository: 'https://github.com/Emerson-Britto/Musiky',
+					viewOnline: ''
 				}
 			}]
 		}

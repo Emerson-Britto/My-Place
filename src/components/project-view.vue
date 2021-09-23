@@ -8,8 +8,12 @@
 			<p class="field_lastUpdate-tool">Last Update: {{ project.lastUpdate }}</p>
 			<p class="projects_description">{{ project.description }}</p>
 			<section>
-				<button class="goProject_btn" v-show="project.permissions.viewCode">View Code</button>
-				<button class="goProject_btn" v-show="project.permissions.viewOnline">View Online</button>
+				<a :href="project.repository">
+					<button class="goProject_btn" v-show="project.repository.length">Repository</button>
+				</a>
+				<a :href="project.viewOnline">
+					<button class="goProject_btn" v-show="project.viewOnline.length">View Online</button>
+				</a>
 			</section>
 		</div>
 	</div>

@@ -33,7 +33,7 @@ export default {
 
 html {
 	font-family: 'Montserrat', sans-serif;
-	background-color: #000;
+	background: linear-gradient(180deg, #03020E, #000008);
 }
 
 h1 {
@@ -47,6 +47,18 @@ a {
 
 button {
 	border: none;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #343434;
 }
 
 #main_container {

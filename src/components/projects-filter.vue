@@ -1,18 +1,48 @@
 <template>
 	<div id="filter_Projects">
-		<button class="filter_btns filter_btns-active">All</button>
-		<button class="filter_btns">React</button>
-		<button class="filter_btns">Python</button>
-		<button class="filter_btns">Javascript</button>
-		<button class="filter_btns">Typescript</button>
-		<button class="filter_btns">Angular</button>
+		<button v-for="(btn, index) in btnList" :key="index" :class="stylesBtn(btn)" @click="filter(btn)">
+			{{btn}}
+		</button>
+		<p v-for="(item, index) in filterLis" :key="index">{{item}}</p>
 	</div>
 </template>
 
 <script>
 
 export default {
+	data() {
+		return {
+			btnList: ['All', 'React', 'Python', 'Javascript', 'Typescript', 'Angular'],
+		}
+	},
 
+    props: {
+
+        filterList: Array
+    },
+
+	methods: {
+
+		filter(filter) {
+
+			if(filter == 'All') return this.$emit('updatelist', [])
+
+			if(this.filterList.some(item => item == filter)) {
+				this.$emit('updatelist', this.filterList.filter(item => item != filter))
+				return
+			}
+			this.$emit('updatelist', this.filterList.concat(filter))
+		},
+
+		stylesBtn(name) {
+
+			if(!this.filterList.length && name == 'All') return 'filter_btns filter_btns-active'
+
+			if(this.filterList.some(item => item == name)) return 'filter_btns filter_btns-active'
+
+			return 'filter_btns'
+		}
+	},
 }
 
 </script>

@@ -30,7 +30,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(0 0 0 / 40%);
+    background-color: rgb(0 0 0 / 30%);
     border-right: 2px solid;
     border-image: linear-gradient(180deg, #000, #000091, #000)1;
     width: 3.5vw;
