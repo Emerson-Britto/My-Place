@@ -8,10 +8,10 @@
 			<p class="field_lastUpdate-tool">Last Update: {{ project.lastUpdate }}</p>
 			<p class="projects_description">{{ project.description }}</p>
 			<section>
-				<a :href="project.repository">
+				<a :href="project.repository" target="_blank">
 					<button class="goProject_btn" v-show="project.repository.length">Repository</button>
 				</a>
-				<a :href="project.viewOnline">
+				<a :href="project.viewOnline" target="_blank">
 					<button class="goProject_btn" v-show="project.viewOnline.length">View Online</button>
 				</a>
 			</section>

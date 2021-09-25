@@ -2,6 +2,7 @@
 	<div class="field_usedTools" >
 		<div :key="index" v-for="(tool, index) in toolsList" class="usedTools">
 			<img :src="`https://raw.githubusercontent.com/Emerson-Britto/API-Musiky/main/dataBase/imgs/icons/${tool}Icon.png`">
+			<p class="tool_name">{{ tool }}</p>
 		</div>
 	</div>
 </template>
@@ -22,12 +23,14 @@ export default {
 <style scoped>
 
 .field_usedTools {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	width: 10%;
 }
+
 
 .usedTools {
 	display: flex;
@@ -41,8 +44,19 @@ export default {
 	overflow: ;
 }
 
+.usedTools:hover .tool_name {
+	display: inline-block;
+}
+
 .usedTools > img {
 	width: 70%;
+}
+
+.tool_name {
+	display: none;
+	position: absolute;
+	left: -60px;
+	text-align: right;
 }
 
 </style>

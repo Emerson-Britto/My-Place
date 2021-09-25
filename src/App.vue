@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<audio @load="$event.target.play()" src="https://firebasestorage.googleapis.com/v0/b/musiky-9df07.appspot.com/o/background-song_emerson_britto.mp3?alt=media&token=bbbf2184-b6cf-45eb-a3e6-3c78f20a6acf" :autoplay='1' :loop='1'></audio>
+
 		<Header></Header>
 		<main id="main_container">
 			<VerticalNavBar></VerticalNavBar>
@@ -14,6 +14,8 @@ import Header from './components/header.vue'
 import VerticalNavBar from './components/verticalNavBar.vue'
 
 export default {
+
+//		<audio @load="$event.target.play()" src="https://firebasestorage.googleapis.com/v0/b/musiky-9df07.appspot.com/o/background-song_emerson_britto.mp3?alt=media&token=bbbf2184-b6cf-45eb-a3e6-3c78f20a6acf" :autoplay='1' :loop='1'></audio>
 
 	components: {
 		Header,

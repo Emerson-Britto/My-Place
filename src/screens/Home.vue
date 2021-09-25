@@ -7,7 +7,7 @@
                 <p id="field_myRole">Javascript Developer</p>
             </section>
             <section class="helpful_Btns">
-                <button id="btn_getCV" class="btnPag">View CV</button>
+                <button id="btn_getCV" class="btnPag">Contact me</button>
                 <button id="btn_viewTheProject" class="btnPag">The Project</button>
             </section>
 

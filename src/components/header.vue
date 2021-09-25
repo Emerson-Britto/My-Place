@@ -1,10 +1,10 @@
 <template>
 	<header class="header_content">
 		<ul class="header_options">
-			<li class="options_li"><a href="">Github</a></li>
-			<li class="options_li"><a href="">LinkedIn</a></li>
-			<li class="options_li"><a href="">Twitter</a></li>
-			<li class="options_li"><a href="">Medium</a></li>
+			<li class="options_li"><a href="https://github.com/Emerson-Britto" target="_blank">Github</a></li>
+			<li class="options_li"><a href="https://www.linkedin.com/in/emerson-britto/" target="_blank">LinkedIn</a></li>
+			<li class="options_li"><a href="https://twitter.com/Emerson_Britto" target="_blank">Twitter</a></li>
+			<li class="options_li"><a href="" target="_blank">Medium</a></li>
 			<li id="featured_option" class="options_li"><a href="">Contact me</a></li>
 		</ul>  
 	</header>
@@ -24,8 +24,10 @@ export default {
     display: flex;
     justify-content: flex-end;
     padding-top: 1vh;
-    width: 92%;
+    width: 100%;
     height: 8vh;
+    background-color: rgb(0 0 0 / 50%);
+    box-shadow: 0px 0px 40px #000;
 }
 
 .header_options {
@@ -33,6 +35,7 @@ export default {
     justify-content: space-around;
     align-items: center;
     width: 60%;
+    margin-right: 90px;
 }
 
 .options_li {

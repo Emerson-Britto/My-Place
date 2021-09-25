@@ -3,7 +3,6 @@
 		<button v-for="(btn, index) in btnList" :key="index" :class="stylesBtn(btn)" @click="filter(btn)">
 			{{btn}}
 		</button>
-		<p v-for="(item, index) in filterLis" :key="index">{{item}}</p>
 	</div>
 </template>
 
