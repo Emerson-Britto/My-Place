@@ -6,6 +6,7 @@
 			:filterList="filterList">
 		</ProjectsFilter>
 		<section id="projects_list">
+			{{totalResult}}
 			<section v-show="matchFIlter(project)" class="projects" :key="index" v-for="(project, index) in projects">
 				<FieldUsedTools :toolsList="project.featuredTools"></FieldUsedTools>
 				<section>
@@ -14,6 +15,10 @@
 					</ul>
 					<ProjectView :project="project.projectView"></ProjectView>					
 				</section>
+			</section>
+			<section v-show="!totalResult" class="project_noFound">
+				<img src="https://infinity-api-nex.herokuapp.com/msk/files/img?path=others/notFound_http-cat.png">
+				<p>Oops... We didn't find projects, maybe they're private one</p>
 			</section>
 		</section>
 	</section>
@@ -30,51 +35,9 @@ export default {
 	data() {
 		return {
 			filterList: [],
-			projects: [{
-				featuredTools: ['react'],
-				allTools: ['React', 'Styled-components', 'Babel', 'react-youtube', 'react-player', 'Musiky API'],
-				projectView: {
-					imgPreview: 'https://infinity-api-nex.herokuapp.com/msk/files/img?path=previews/Musiky.png',
-					projTitle: 'Musiky App',
-					lastUpdate: '16/09/2001',
-					description: 'A web application based on current music players',
-					repository: 'https://github.com/Emerson-Britto/Musiky',
-					viewOnline: ''
-				}
-			},{
-				featuredTools: ['js'],
-				allTools: ['Html', 'CSS', 'Javascript'],
-				projectView: {
-					imgPreview: 'https://infinity-api-nex.herokuapp.com/msk/files/img?path=previews/musiky-WebPage.png',
-					projTitle: 'Musiky WebPage',
-					lastUpdate: '16/09/2001',
-					description: 'Musicy webpage - Initial presentation',
-					repository: 'https://github.com/Emerson-Britto/Musiky-Site',
-					viewOnline: 'https://emerson-britto.github.io/Musiky-Site/'
-				}
-			},{
-				featuredTools: ['angular', 'sass', 'ts', 'rxjs'],
-				allTools: ['Angular', 'Rxjs', 'Sass', 'Typescript', 'Musiky API'],
-				projectView: {
-					imgPreview: 'https://infinity-api-nex.herokuapp.com/msk/files/img?path=previews/account-Musiky.png',
-					projTitle: 'Account Musiky',
-					lastUpdate: '09/09/2001',
-					description: 'Login system using Angular and Musiky API',
-					repository: 'https://github.com/Emerson-Britto/accounts-musiky',
-					viewOnline: ''
-				}
-			},{
-				featuredTools: ['js'],
-				allTools: ['Html', 'CSS', 'Javascript', 'LocalStorage API'],
-				projectView: {
-					imgPreview: 'https://infinity-api-nex.herokuapp.com/msk/files/img?path=previews/CODA-Preview.png',
-					projTitle: 'CODA__HightLight',
-					lastUpdate: '25/06/2021',
-					description: 'First project in Js - Some codes are outdated',
-					repository: 'https://github.com/Emerson-Britto/CODA__HightLight',
-					viewOnline: 'https://emerson-britto.github.io/CODA__HightLight/'
-				}
-			}]
+			lastfilterLength: 0,
+			totalResult: 1,
+			projects: []
 		}
 	},
 
@@ -87,15 +50,28 @@ export default {
     methods: {
 		matchFIlter({ allTools }){
 
+			if(this.filterList.length != this.lastfilterLength){ 
+				this.totalResult = 0
+				this.lastfilterLength = this.filterList.length
+			}
+
 			for(let i=0; i < allTools.length; i++){
 
-				if(this.filterList.includes(allTools[i]) || !this.filterList.length) return true
+				if(this.filterList.includes(allTools[i]) || !this.filterList.length) {
+					this.totalResult++
+					return true
+				}
 			}
 
 			return false
 		}
-	}
+	},
 
+	created() {
+
+		this.$http.get('https://infinity-api-nex.herokuapp.com/projectsList')
+			.then(res => this.projects = res.data, err => console.log(err))
+	}
 }
 
 </script>
@@ -142,6 +118,17 @@ export default {
 	border-radius: 10px;
 	color: #fff;
 	font-size: 0.9em;
+}
+
+.project_noFound {
+	text-align: center;
+	color: #fff;
+}
+
+.project_noFound > img {
+	border-radius: 10px;
+	width: 20em;
+	margin-bottom: 30px;
 }
 
 </style>
