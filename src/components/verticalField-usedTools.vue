@@ -1,7 +1,7 @@
 <template>
 	<div class="field_usedTools" >
 		<div :key="index" v-for="(tool, index) in toolsList" class="usedTools">
-			<img :src="`https://raw.githubusercontent.com/Emerson-Britto/API-Musiky/main/dataBase/imgs/icons/${tool}Icon.png`">
+			<img :src="`https://infinity-api-nex.herokuapp.com/msk/files/img?path=icons/${tool}Icon.png`">
 			<p class="tool_name">{{ tool }}</p>
 		</div>
 	</div>
@@ -56,7 +56,6 @@ export default {
 	display: none;
 	position: absolute;
 	left: -60px;
-	text-align: right;
 }
 
 </style>

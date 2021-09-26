@@ -34,7 +34,7 @@ export default {
 				featuredTools: ['react'],
 				allTools: ['React', 'Styled-components', 'Babel', 'react-youtube', 'react-player', 'Musiky API'],
 				projectView: {
-					imgPreview: 'https://raw.githubusercontent.com/Emerson-Britto/API-Musiky/main/dataBase/imgs/previews/Musiky.png',
+					imgPreview: 'https://infinity-api-nex.herokuapp.com/msk/files/img?path=previews/Musiky.png',
 					projTitle: 'Musiky App',
 					lastUpdate: '16/09/2001',
 					description: 'A web application based on current music players',
@@ -45,7 +45,7 @@ export default {
 				featuredTools: ['js'],
 				allTools: ['Html', 'CSS', 'Javascript'],
 				projectView: {
-					imgPreview: 'https://raw.githubusercontent.com/Emerson-Britto/API-Musiky/main/dataBase/imgs/previews/musiky-WebPage.png',
+					imgPreview: 'https://infinity-api-nex.herokuapp.com/msk/files/img?path=previews/musiky-WebPage.png',
 					projTitle: 'Musiky WebPage',
 					lastUpdate: '16/09/2001',
 					description: 'Musicy webpage - Initial presentation',
@@ -53,10 +53,10 @@ export default {
 					viewOnline: 'https://emerson-britto.github.io/Musiky-Site/'
 				}
 			},{
-				featuredTools: ['angular', 'sass', 'ts'],
+				featuredTools: ['angular', 'sass', 'ts', 'rxjs'],
 				allTools: ['Angular', 'Rxjs', 'Sass', 'Typescript', 'Musiky API'],
 				projectView: {
-					imgPreview: 'https://raw.githubusercontent.com/Emerson-Britto/API-Musiky/main/dataBase/imgs/previews/account-Musiky.png',
+					imgPreview: 'https://infinity-api-nex.herokuapp.com/msk/files/img?path=previews/account-Musiky.png',
 					projTitle: 'Account Musiky',
 					lastUpdate: '09/09/2001',
 					description: 'Login system using Angular and Musiky API',
@@ -67,7 +67,7 @@ export default {
 				featuredTools: ['js'],
 				allTools: ['Html', 'CSS', 'Javascript', 'LocalStorage API'],
 				projectView: {
-					imgPreview: 'https://raw.githubusercontent.com/Emerson-Britto/API-Musiky/main/dataBase/imgs/previews/CODA-Preview.png',
+					imgPreview: 'https://infinity-api-nex.herokuapp.com/msk/files/img?path=previews/CODA-Preview.png',
 					projTitle: 'CODA__HightLight',
 					lastUpdate: '25/06/2021',
 					description: 'First project in Js - Some codes are outdated',
