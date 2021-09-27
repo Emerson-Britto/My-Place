@@ -2,7 +2,7 @@
     <section class="section_home">
         <section class="main_content">
             <section class="presentation">
-                <p id="field_greeting">Good Morning!</p>
+                <p id="field_greeting">{{ getTime() }}</p>
                 <h1 id="field_myName">Hi, I'm Emerson Britto</h1>
                 <p id="field_myRole">Javascript Developer</p>
             </section>
@@ -32,6 +32,17 @@ export default {
         Cubes,
         Ring
     },
+
+    methods: {
+        getTime() {
+            var time = new Date().getHours();
+
+            if(time >= 20 && time <= 23 || time >= 0 && time < 5) return 'Good Night';
+            if(time >= 5 && time < 12) return 'Good Morning';
+            if(time >= 12 && time < 18) return 'Good Afternoon';
+            if(time >= 18 && time <= 19) return 'Good Evening';
+        }
+    }
 
 }
 

@@ -9,15 +9,11 @@
 <script>
 
 export default {
-	data() {
-		return {
-			btnList: ['All', 'React', 'Python', 'Javascript', 'Typescript', 'Angular'],
-		}
-	},
 
     props: {
 
-        filterList: Array
+        filterList: Array,
+        btnList: Array
     },
 
 	methods: {

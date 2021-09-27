@@ -31,6 +31,8 @@ export default {
 * {
 	margin: 0;
 	padding: 0;
+	scrollbar-width: thin;
+	scrollbar-color: #333333 #000 !important;
 }
 
 html {
@@ -58,7 +60,9 @@ button {
     width: 5px;
     height: 5px;
     background: transparent;
+    -moz-background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
     background: #343434;
 }

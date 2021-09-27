@@ -3,10 +3,10 @@
 		<ProjectsFilter 
 			id="projectsFilter" 
 			@updatelist="newList => this.filterList = newList" 
-			:filterList="filterList">
+			:filterList="filterList"
+			:btnList="btnList">
 		</ProjectsFilter>
 		<section id="projects_list">
-			{{totalResult}}
 			<section v-show="matchFIlter(project)" class="projects" :key="index" v-for="(project, index) in projects">
 				<FieldUsedTools :toolsList="project.featuredTools"></FieldUsedTools>
 				<section>
@@ -17,8 +17,8 @@
 				</section>
 			</section>
 			<section v-show="!totalResult" class="project_noFound">
-				<img src="https://infinity-api-nex.herokuapp.com/msk/files/img?path=others/notFound_http-cat.png">
-				<p>Oops... We didn't find projects, maybe they're private one</p>
+				<img :src="noFound.img">
+				<p>{{ noFound.msg }}</p>
 			</section>
 		</section>
 	</section>
@@ -37,7 +37,9 @@ export default {
 			filterList: [],
 			lastfilterLength: 0,
 			totalResult: 1,
-			projects: []
+			btnList: [],
+			projects: [],
+			noFound: {}
 		}
 	},
 
@@ -70,7 +72,11 @@ export default {
 	created() {
 
 		this.$http.get('https://infinity-api-nex.herokuapp.com/projectsList')
-			.then(res => this.projects = res.data, err => console.log(err))
+			.then(res => {
+				this.projects = res.data.projects
+				this.btnList = ['All', ...res.data.filterOptions]
+				this.noFound = res.data.noFound
+			}, err => console.log(err))
 	}
 }
 
