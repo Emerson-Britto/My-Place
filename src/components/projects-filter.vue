@@ -57,7 +57,7 @@ export default {
 	border: 2px solid #1913AC;
 	transition: 500ms;
 	border-radius: 10px;
-	margin: 0 10px;
+	margin: 10px 10px;
 	padding: 5px 10px;
 	font-size: 1em;
 	cursor: pointer;

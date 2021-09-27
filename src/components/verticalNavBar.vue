@@ -26,6 +26,7 @@ export default {
 <style scoped>
 
 .vertical_NavBar {
+	position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,7 +34,7 @@ export default {
     background-color: rgb(0 0 0 / 30%);
     border-right: 2px solid;
     border-image: linear-gradient(180deg, #000, #000091, #000)1;
-    width: 3.5vw;
+    width: 46px;
     height: 100vh;
 }
 
@@ -51,6 +52,21 @@ export default {
 	opacity: 100%;
 	background-color: rgb(255 255 255 / 11%);
 	box-shadow: 0px 0px 20px rgb(255 255 255 / 30%);
+}
+
+@media screen and (max-width: 880px) {
+	.vertical_NavBar {
+		bottom: 0;
+		width: 100vw;
+		height: 46px;
+		border-top: 0px solid;
+		background-color: rgb(0 0 0 / 80%);
+		flex-direction: row;
+	}
+
+	.btn_navBar {
+		margin: 0 13px;
+	}
 }
 
 </style>

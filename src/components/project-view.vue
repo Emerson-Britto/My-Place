@@ -37,7 +37,8 @@ export default {
 .projects_view {
 	display: flex;
 	border: 3px solid #1913A2;
-	width: 90%;
+	width: 95%;
+	height: 84%;
 	border-radius: 10px;
 	overflow: hidden;
 }
@@ -70,6 +71,7 @@ export default {
 
 .projects_description {
 	width: 80%;
+	font-size: 1em;
 	margin: 20px auto;	
 }
 
@@ -87,6 +89,68 @@ export default {
 
 .goProject_btn:hover {
 	background-color: #0B1394;
+}
+
+
+@media screen and (max-width: 1140px) {
+
+	.projects_description {
+		margin: 10px auto;
+		font-size: 0.9em;
+	}
+}
+
+@media screen and (max-width: 950px) {
+
+	.projects_view {
+		width: 100%;
+	}
+
+	.projects_title {
+		margin: 18px 0;
+		font-size: 1.2em;
+	}
+}
+
+@media screen and (max-width: 725px) {
+
+	.projects_view {
+		flex-direction: column;
+		width: 410px;
+		height: 91%;
+	}
+
+	.img_container {
+		width: 100%;
+		height: 50%;
+	}
+
+	.projects_infors {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 425px) {
+
+	.projects_view {
+		width: 90%;
+	}
+
+	.img_container {
+		height: 48%;
+	}
+
+	.projects_title {
+		margin: 20px 0;
+	}
+
+	.projects_description {
+		margin: 20px auto;
+	}
+
+	.goProject_btn {
+		margin: 20px 0;
+	}
 }
 
 </style>

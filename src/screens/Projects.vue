@@ -8,8 +8,8 @@
 		</ProjectsFilter>
 		<section id="projects_list">
 			<section v-show="matchFIlter(project)" class="projects" :key="index" v-for="(project, index) in projects">
-				<FieldUsedTools :toolsList="project.featuredTools"></FieldUsedTools>
-				<section>
+				<FieldUsedTools class="hidden_mobile" :toolsList="project.featuredTools"></FieldUsedTools>
+				<section class="allTools_and_projectView">
 					<ul class="allTools_viewList">
 						<li v-for="(tool, index) in project.allTools" :key="index">{{ tool }}</li>
 					</ul>
@@ -89,31 +89,31 @@ export default {
     flex-direction: column;
     align-items: center;
     background: linear-gradient(180deg, #03020E, #000008);
-    overflow: scroll;
-    width: 96.5vw;
+    width: 100vw;
     height: 100vh;
 }
 
 #projectsFilter {
-	margin-top: 20vh;
+	margin: 20vh 30px 0 30px;
 }
 
 #projects_list {
 	margin-top: 10vh;
-	width: 75%;
+	width: 980px;
 }
 
 .projects {
 	display: flex;
 	justify-content: space-around;
-	margin: 40px 0;
+	margin: 40px 0 40px 25px;
 	width: 100%;
-	height: 280px;
+	height: 40vh;
 	color: #fff;
 }
 
 .allTools_viewList {
 	display: flex;
+	flex-wrap: wrap-reverse;
 	list-style: none;
 }
 
@@ -135,6 +135,78 @@ export default {
 	border-radius: 10px;
 	width: 20em;
 	margin-bottom: 30px;
+}
+
+@media screen and (max-width: 1140px) {
+
+	#projects_list {
+		width: 900px;
+	}
+
+	.projects {
+		height: 37vh;
+	}
+
+	.allTools_viewList > li {
+		font-size: 0.8em;
+	}
+}
+
+@media screen and (max-width: 950px) {
+
+	#projects_list {
+		width: 680px;
+	}
+
+	.projects {
+		height: 32vh;
+	}
+
+	.projects {
+		margin: 40px 0 40px 0;
+	}
+
+	.hidden_mobile {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 725px) {
+	#projects_list {
+		width: 100vw;
+	}
+	.projects {
+		width: 100vw;
+		height: 67vh;
+	}
+
+	.allTools_and_projectView {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+
+	.allTools_viewList {
+		justify-content: center;
+		margin: 0 10px;
+	}
+}
+
+@media screen and (max-width: 425px) {
+
+	#projects_list {
+		margin-top: 5vh;
+		padding-bottom: 12vh;
+	}
+
+	.projects {
+		height: auto;
+	}
+
+	.project_noFound > p {
+		margin: 0 20px;
+	}
 }
 
 </style>
