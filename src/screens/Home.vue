@@ -10,7 +10,6 @@
                 <button id="btn_getCV" class="btnPag">Contact me</button>
                 <button id="btn_viewTheProject" class="btnPag">The Project</button>
             </section>
-
         </section>
         <section class="container_animations">
             <section class="animations">
@@ -52,9 +51,12 @@ export default {
 
 .section_home {
     display: flex;
-    background: linear-gradient(180deg, #03020E, #000008);
+    background-color: #03020E;
+    justify-content: center;
+    align-items: center;
     width: 96.5vw;
     height: 100vh;
+    overflow: hidden;
 }
 
 .main_content {
@@ -62,11 +64,12 @@ export default {
     flex-direction: column;
     justify-content: center;
     width: 46vw;
+    height: 70vh;
 }
 
 .presentation {
     font-family: 'Montserrat', sans-serif;
-    margin-left: 70px; 
+    margin-left: 50px; 
 }
 
 #field_greeting {
@@ -86,7 +89,7 @@ export default {
 }
 
 .helpful_Btns {
-    margin: 70px 0 0 70px;
+    margin: 70px 0 0 50px;
 }
 
 .btnPag {
@@ -130,7 +133,41 @@ export default {
     justify-content: center;
     align-items: center;
     width: 40vw;
-    height: 60vh;
+    height: 70vh;
+}
+
+@media screen and (max-width: 1070px) {
+
+    .section_home {
+        flex-direction: column;
+        height: auto;
+        margin: 10vh 0 10vh 0;
+    }
+
+    .main_content {
+        width: 100vw;
+        align-items: center;
+    }
+
+    .animations {
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 50vh;
+        padding-bottom: 10vh;
+    }
+}
+
+@media screen and (max-width: 880px) {
+
+    .presentation {
+        text-align: center;
+        margin-left: 0; 
+    }
+
+    .helpful_Btns {
+        margin-left: 0;
+    }
 }
 
 </style>

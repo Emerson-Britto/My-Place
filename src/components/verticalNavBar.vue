@@ -34,6 +34,7 @@ export default {
     background-color: rgb(0 0 0 / 30%);
     border-right: 2px solid;
     border-image: linear-gradient(180deg, #000, #000091, #000)1;
+    z-index: 5;
     width: 46px;
     height: 100vh;
 }

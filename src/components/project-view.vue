@@ -149,7 +149,7 @@ export default {
 	}
 
 	.goProject_btn {
-		margin: 20px 0;
+		margin: 20px 10px;
 	}
 }
 

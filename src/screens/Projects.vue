@@ -88,7 +88,6 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(180deg, #03020E, #000008);
     width: 100vw;
     height: 100vh;
 }
