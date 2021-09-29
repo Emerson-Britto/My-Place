@@ -20,6 +20,7 @@
 				<img :src="noFound.img">
 				<p>{{ noFound.msg }}</p>
 			</section>
+			<Loading v-show="loading"></Loading>
 		</section>
 	</section>
 </template>
@@ -28,6 +29,7 @@
 import ProjectsFilter from '../components/projects-filter.vue'
 import FieldUsedTools from '../components/verticalField-usedTools.vue'
 import ProjectView from '../components/project-view.vue'
+import Loading from '../components/loading.vue'
 
 export default {
 	name: 'Projects',
@@ -37,6 +39,7 @@ export default {
 			filterList: [],
 			lastfilterLength: 0,
 			totalResult: 1,
+			loading: true,
 			btnList: [],
 			projects: [],
 			noFound: {}
@@ -46,7 +49,8 @@ export default {
     components: {
         ProjectsFilter,
         ProjectView,
-        FieldUsedTools
+        FieldUsedTools,
+        Loading
     },
 
     methods: {
@@ -76,6 +80,7 @@ export default {
 				this.projects = res.data.projects
 				this.btnList = ['All', ...res.data.filterOptions]
 				this.noFound = res.data.noFound
+				this.loading = false
 			}, err => console.log(err))
 	}
 }
@@ -97,6 +102,9 @@ export default {
 }
 
 #projects_list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	margin-top: 10vh;
 	width: 980px;
 }
