@@ -4,9 +4,8 @@
 			<li class="options_li hidden-mobile"><a href="https://github.com/Emerson-Britto" target="_blank">Github</a></li>
 			<li class="options_li hidden-mobile"><a href="https://www.linkedin.com/in/emerson-britto/" target="_blank">LinkedIn</a></li>
 			<li class="options_li hidden-mobile"><a href="https://twitter.com/Emerson_Britto" target="_blank">Twitter</a></li>
-            <li class="options_li hidden-mobile"><a href="" target="_blank">Medium</a></li>
 			<li class="options_li show-mobile" @click="show_box = true">Social Media</li>
-			<li id="featured_option" class="options_li"><a href="">Contact me</a></li>
+			<li id="featured_option" class="options_li" @click="show_box_contactMe = true">Contact me</li>
 		</ul>
         <section v-show="show_box" @click="show_box = false" class="overlay">
             <section class="box_social_media">
@@ -14,21 +13,28 @@
                     <li class="options_li"><a href="https://github.com/Emerson-Britto" target="_blank">Github</a></li>
                     <li class="options_li"><a href="https://www.linkedin.com/in/emerson-britto/" target="_blank">LinkedIn</a></li>
                     <li class="options_li"><a href="https://twitter.com/Emerson_Britto" target="_blank">Twitter</a></li>
-                    <li class="options_li"><a href="" target="_blank">Medium</a></li>
                 </ul>
             </section>
         </section>
+        <BoxContactMe v-show="show_box_contactMe" @closebox="()=> this.show_box_contactMe = false" ></BoxContactMe>
 	</header>
 </template>
 
 <script>
+import BoxContactMe from './boxContectMe.vue'
+
 export default {
 	name: 'Projects',
 
     data() {
         return {
+            show_box_contactMe: false,
             show_box: false
         }
+    },
+
+    components: {
+        BoxContactMe
     }
 }
 
@@ -65,16 +71,13 @@ export default {
 }
 
 .options_li > a:hover {
-    color: #1843FF;
+    color: #189BD6;
 }
 
 #featured_option {
     background-color: #fff;
     padding: 6px 14px;
     border-radius: 8px;
-}
-
-#featured_option > a {
     color: #000;
 }
 
