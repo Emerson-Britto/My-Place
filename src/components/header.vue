@@ -79,6 +79,7 @@ export default {
     padding: 6px 14px;
     border-radius: 8px;
     color: #000;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 880px) {

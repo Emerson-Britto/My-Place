@@ -95,11 +95,11 @@ export default {
 .btnPag {
     border: none;
     border-radius: 9px;
-    cursor: pointer;
     color: #fff;
     font-size: 1.2em;
     padding: 6px 18px;
     transition: 500ms;
+    cursor: not-allowed;
 }
 
 #btn_getCV {

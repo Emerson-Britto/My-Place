@@ -1,6 +1,6 @@
 <template>
 	<aside class="vertical_NavBar">
-		<router-link to='/home'><button class="btn_navBar"><img :class="stylesNavIcon('/home')" src="../assets/icons/home.svg"></button></router-link>
+		<router-link to='/'><button class="btn_navBar"><img :class="stylesNavIcon('/')" src="../assets/icons/home.svg"></button></router-link>
 		<router-link to='/projects'><button class="btn_navBar"><img :class="stylesNavIcon('/projects')" src="../assets/icons/projects.svg"></button></router-link>
 		<router-link to='/about'><button class="btn_navBar"><img :class="stylesNavIcon('/about')" src="../assets/icons/person.svg"></button></router-link>
 	</aside>
