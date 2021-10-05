@@ -41,7 +41,7 @@ export default {
 			totalResult: 1,
 			loading: true,
 			btnList: [],
-			projects: [],
+			projects: {},
 			noFound: {}
 		}
 	},
@@ -57,31 +57,31 @@ export default {
 		matchFIlter({ allTools }){
 
 			if(this.filterList.length != this.lastfilterLength){ 
-				this.totalResult = 0
-				this.lastfilterLength = this.filterList.length
+				this.totalResult = 0;
+				this.lastfilterLength = this.filterList.length;
 			}
 
 			for(let i=0; i < allTools.length; i++){
 
 				if(this.filterList.includes(allTools[i]) || !this.filterList.length) {
-					this.totalResult++
-					return true
+					this.totalResult++;
+					return true;
 				}
 			}
 
-			return false
+			return false;
 		}
 	},
 
 	created() {
 
-		this.$http.get('https://infinity-api-nex.herokuapp.com/projectsList')
-			.then(res => {
-				this.projects = res.data.projects
-				this.btnList = ['All', ...res.data.filterOptions]
-				this.noFound = res.data.noFound
-				this.loading = false
-			}, err => console.log(err))
+		this.$http.get('https://infinity-api-nex.herokuapp.com/projectsList').then(res => {
+			this.projects = res.data.projects;
+			this.btnList = ['All', ...res.data.filterOptions];
+			this.noFound = res.data.noFound;
+			this.loading = false;
+			alert('data')
+		}, err => console.log(err))
 	}
 }
 
