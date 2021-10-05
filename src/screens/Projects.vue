@@ -7,7 +7,7 @@
 			:btnList="btnList">
 		</ProjectsFilter>
 		<section id="projects_list">
-			<section v-show="matchFIlter(project)" class="projects" :key="index" v-for="(project, index) in projects">
+			<section class="projects" :key="index" v-for="(project, index) in filteredProjects">
 				<FieldUsedTools class="hidden_mobile" :toolsList="project.featuredTools"></FieldUsedTools>
 				<section class="allTools_and_projectView">
 					<ul class="allTools_viewList">
@@ -16,7 +16,7 @@
 					<ProjectView :project="project.projectView"></ProjectView>					
 				</section>
 			</section>
-			<section v-show="!totalResult" class="project_noFound">
+			<section v-show="!filteredProjects.length" class="project_noFound">
 				<img :src="noFound.img">
 				<p>{{ noFound.msg }}</p>
 			</section>
@@ -37,11 +37,9 @@ export default {
 	data() {
 		return {
 			filterList: [],
-			lastfilterLength: 0,
-			totalResult: 1,
 			loading: true,
 			btnList: [],
-			projects: {},
+			projects: [],
 			noFound: {}
 		}
 	},
@@ -53,35 +51,26 @@ export default {
         Loading
     },
 
-    methods: {
-		matchFIlter({ allTools }){
-
-			if(this.filterList.length != this.lastfilterLength){ 
-				this.totalResult = 0;
-				this.lastfilterLength = this.filterList.length;
-			}
-
-			for(let i=0; i < allTools.length; i++){
-
-				if(this.filterList.includes(allTools[i]) || !this.filterList.length) {
-					this.totalResult++;
-					return true;
-				}
-			}
-
-			return false;
-		}
-	},
-
 	created() {
 
-		this.$http.get('https://infinity-api-nex.herokuapp.com/projectsList').then(res => {
-			this.projects = res.data.projects;
-			this.btnList = ['All', ...res.data.filterOptions];
-			this.noFound = res.data.noFound;
+		this.$http.get('https://infinity-api-nex.herokuapp.com/projectsList').then(({data}) => {
+			this.projects = data.projects;
+			this.btnList = ['All', ...data.filterOptions];
+			this.noFound = data.noFound;
 			this.loading = false;
-			alert('data')
 		}, err => console.log(err))
+	},
+
+	computed: {
+		filteredProjects() {
+
+			return this.projects.filter(project => {
+
+				return project.allTools.some(tool =>
+					this.filterList.includes(tool) || !this.filterList.length
+				)
+			})
+		}
 	}
 }
 
