@@ -3,17 +3,17 @@
         <ul class="contact_list">
             <li>
                 <a href="https://www.linkedin.com/in/emerson-britto/" target="_blank">
-                    <img id="icons" src="../assets/icons/linkedin.svg">
+                    <img id="icons" src="@/assets/icons/linkedin.svg">
                 </a>
             </li>
             <li>
                 <a href="https://wa.me/5573981506021?text=Hello World!!" target="_blank">
-                    <img id="icons" src="../assets/icons/Whatsapp.svg">
+                    <img id="icons" src="@/assets/icons/Whatsapp.svg">
                 </a>
             </li>
             <li>
                 <a href="mailto:emersonbritto987@gmail.com?subject=HelloWorld!!" target="_blank">
-                    <img id="icons" src="../assets/icons/mail.svg">
+                    <img id="icons" src="@/assets/icons/mail.svg">
                 </a>
             </li>
         </ul>

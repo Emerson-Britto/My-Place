@@ -58,7 +58,6 @@ button {
     width: 5px;
     height: 5px;
     background: transparent;
-    -moz-background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
