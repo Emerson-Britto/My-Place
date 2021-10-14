@@ -4,5 +4,5 @@ const path = require('path');
 app = express();
 app.use(serveStatic(path.join(__dirname, 'dist')));
 const port = process.env.PORT || 4567;
-console.log(`WEB APLICATION IS RUNNING IN PORT: ${PORT}`)
+console.log(`WEB APLICATION IS RUNNING IN PORT: ${port}`)
 app.listen(port);
