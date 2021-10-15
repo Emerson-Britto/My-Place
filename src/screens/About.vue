@@ -110,17 +110,16 @@ export default {
 }
 
 .particles {
-	opacity: 0;
 	right: 10%;
 	bottom:15%;
 }
 
 #particle1 {
-	animation: 10s particles infinite;
+	animation: 10s particles_mov infinite;
 }
 
 #particle2 {
-	animation: 10s particles 6s infinite;
+	animation: 10s particles_mov 6s infinite;
 }
 
 /*  SKILLS  */
@@ -161,14 +160,8 @@ export default {
 	background-color: #1822FF;
 }
 
-@keyframes particles {
-	10% {
-		opacity: 100%;
-	}
-	95% {
-		opacity: 100%;
-	}
-	100% {
+@keyframes particles_mov {
+	to {
 		transform: translateX(-30px) translateY(-30px);
 		opacity: 0;
 	}	
