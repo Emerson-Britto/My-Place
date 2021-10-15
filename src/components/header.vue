@@ -5,7 +5,7 @@
 			<li class="options_li hidden-mobile"><a href="https://www.linkedin.com/in/emerson-britto/" target="_blank">LinkedIn</a></li>
 			<li class="options_li hidden-mobile"><a href="https://twitter.com/Emerson_Britto" target="_blank">Twitter</a></li>
 			<li class="options_li show-mobile" @click="show_box = true">Social Media</li>
-			<li id="featured_option" class="options_li" @click="show_box_contactMe = true">Contact me</li>
+			<li id="featured_option" class="options_li" @click="this.$emit('openBox')">Contact me</li>
 		</ul>
         <section v-show="show_box" @click="show_box = false" class="overlay">
             <section class="box_social_media">
@@ -16,25 +16,18 @@
                 </ul>
             </section>
         </section>
-        <BoxContactMe v-show="show_box_contactMe" @closebox="()=> this.show_box_contactMe = false" ></BoxContactMe>
 	</header>
 </template>
 
 <script>
-import BoxContactMe from './boxContectMe.vue'
 
 export default {
 	name: 'Projects',
 
     data() {
         return {
-            show_box_contactMe: false,
             show_box: false
         }
-    },
-
-    components: {
-        BoxContactMe
     }
 }
 

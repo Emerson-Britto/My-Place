@@ -7,8 +7,10 @@
                 <p id="field_myRole">Javascript Developer</p>
             </section>
             <section class="helpful_Btns">
-                <button id="btn_getCV" class="btnPag">Contact me</button>
-                <button id="btn_viewTheProject" class="btnPag">The Project</button>
+                <button id="btn_getCV" class="btnPag" @click="this.$emit('openBox')">Contact me</button>
+                <a href="https://emerson-britto.github.io/Musiky-Site/" target="_blank">
+                    <button id="btn_viewTheProject" class="btnPag">Best Project</button>
+                </a>
             </section>
         </section>
         <section class="container_animations">
@@ -99,7 +101,7 @@ export default {
     font-size: 1.2em;
     padding: 6px 18px;
     transition: 500ms;
-    cursor: not-allowed;
+    cursor: pointer;
 }
 
 #btn_getCV {
