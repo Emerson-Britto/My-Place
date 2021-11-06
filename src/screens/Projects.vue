@@ -53,7 +53,7 @@ export default {
 
 	created() {
 
-		this.$http.get('https://infinity-api-nex.herokuapp.com/projectsList').then(({data}) => {
+		this.$http.get('https://cdn-istatics.herokuapp.com/meProjects').then(({data}) => {
 			this.projects = data.projects;
 			this.btnList = ['All', ...data.filterOptions];
 			this.noFound = data.noFound;

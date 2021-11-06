@@ -1,13 +1,15 @@
 <template>
 	<div class="field_usedTools" >
 		<div :key="index" v-for="(tool, index) in toolsList" class="usedTools">
-			<img :src="`https://infinity-api-nex.herokuapp.com/msk/files/img?path=icons/${tool}Icon.png`">
-			<p class="tool_name">{{ tool }}</p>
+			<img :src="`https://cdn-istatics.herokuapp.com/static/icons/${tool.fileName}`">
+			<p class="tool_name">{{ tool.label }}</p>
 		</div>
 	</div>
 </template>
 
 <script>
+
+	// https://cdn-istatics.herokuapp.com/static/icons/${tool.fileName}
 
 export default {
 	name: 'Projects',
