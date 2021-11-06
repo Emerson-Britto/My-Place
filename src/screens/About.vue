@@ -66,7 +66,7 @@ export default {
 
 	created() {
 
-		this.$http.get('http://localhost:9872/static/aboutMe.json').then(({ data }) => {
+		this.$http.get('http://cdn-istatics.herokuapp.com/static/aboutMe.json').then(({ data }) => {
 			this.aboutMe = data;
 			this.loading = false;
 		}, err => console.log(err))
