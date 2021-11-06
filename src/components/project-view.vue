@@ -64,8 +64,7 @@ export default {
 }
 	
 .field_lastUpdate-tool {
-	opacity: 70%;
-	color: #fff;
+	color: #424444;
 	font-size: 0.9em;
 	margin: 10px 0;
 }
