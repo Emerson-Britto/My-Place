@@ -1,56 +1,76 @@
 <template>
-	<section class="About_Container">
-		<section class="Name_and_Branding">
-			<section class="name_and_role">
-				<h1 id="myName">@Emerson_Britto</h1>
-				<p id="myAge">20 Years Old</p>
-				<h2 id="myRole">Javascriṕt Developer</h2>				
+	<section class="wrapper-view">
+		<Loading v-show="loading"></Loading>
+		<section v-show="!loading" class="About_Container">
+			<section class="Name_and_Branding">
+				<section class="name_and_role">
+					<h1 id="myName">{{aboutMe.name}}</h1>
+					<p id="myAge">>> {{aboutMe.age}}</p>
+					<h2 id="myRole">{{aboutMe.roles}}</h2>				
+				</section>
+				<section class="section_Branding">
+					<img id="main_branding" src="../assets/imgs/brandingNeon.png">
+					<img id="particle1" class="particles" src="../assets/imgs/particle1.png">
+					<img id="particle2" class="particles" src="../assets/imgs/particle2.png">
+				</section>
 			</section>
-			<section class="section_Branding">
-				<img id="main_branding" src="../assets/imgs/brandingNeon.png">
-				<img id="particle1" class="particles" src="../assets/imgs/particle1.png">
-				<img id="particle2" class="particles" src="../assets/imgs/particle2.png">
+			<section class="skills">
+				<section class="languagen_and_tools">
+					<h3>Featured Tools:</h3>
+					<ul class="style-list">
+						<li 
+							v-for="(tool, index) in aboutMe.tools" 
+							:key="index" 
+							class="box_list_items">
+							<img class="tool_img" :src="tool.imgUrl"/>
+							{{tool.name}}
+						</li>
+					</ul>
+				</section>
+				<section class="languagen_and_tools">
+					<h3>Others:</h3>
+					<ul class="style-list">
+						<li 
+							v-for="(tool, index) in aboutMe.others" 
+							:key="index" 
+							class="box_list_items">
+							<img class="tool_img" :src="tool.imgUrl"/>
+							{{tool.name}}
+						</li>
+					</ul>
+				</section>
 			</section>
-		</section>
-		<section class="skills">
-			<section class="languagen_and_tools">
-				<h3>Programming Languagens:</h3>
-				<ul class="style-list">
-					<li class="list_items languagen_list">Javascipt</li>
-					<li class="list_items languagen_list">Python</li>
-				</ul>
-			</section>
-			<section class="languagen_and_tools">
-				<h3>Featured Tools:</h3>
-				<ul class="style-list">
-					<li class="list_items tools_list">React</li>
-					<li class="list_items tools_list">Angular</li>
-					<li class="list_items tools_list">Vue</li>
-					<li class="list_items tools_list">Node Js</li>
-					<li class="list_items tools_list">Sass</li>
-					<li class="list_items tools_list">Typescript</li>
-				</ul>
-			</section>
-			<section class="languagen_and_tools">
-				<h3>Others:</h3>
-				<ul class="style-list">
-					<li class="list_items others_list">Express</li>
-					<li class="list_items others_list">Git</li>
-					<li class="list_items others_list">Bootstrap</li>
-					<li class="list_items others_list">WebPack</li>
-					<li class="list_items others_list">ThreeJs</li>
-					<li class="list_items others_list">JWT</li>
-				</ul>
-			</section>
-		</section>
+		</section>		
 	</section>
+
 </template>
 
 <script>
 
+import Loading from '../components/loading.vue'
+
 export default {
+
 	name: 'Projects',
 
+	data() {
+		return {
+			aboutMe: {},
+			loading: true
+		}
+	},
+
+    components: {
+        Loading
+    },
+
+	created() {
+
+		this.$http.get('http://localhost:9872/static/aboutMe.json').then(({ data }) => {
+			this.aboutMe = data;
+			this.loading = false;
+		}, err => console.log(err))
+	},
 }
 
 </script>
@@ -59,6 +79,14 @@ export default {
 
 * {
 	color: #fff;
+}
+
+.wrapper-view {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 99vw;
+	min-height: 100vh;
 }
 
 /*  NAME & BRANDING  */
@@ -89,8 +117,11 @@ export default {
 	font-size: 2.9em;
 }
 
+#myAge {
+	margin: 10px 0;
+}
+
 #myRole {
-	margin-top: 5px;
 	font-size: 1.1em;
 }
 
@@ -130,34 +161,37 @@ export default {
 
 .style-list {
 	list-style: none;
+	margin-top: 15px;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 .languagen_and_tools {
-	margin-top: 30px;
+	margin-top: 5px;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	width: 80vw;
 }
 
-.list_items {
-	margin: 0 10px;	
-	border-radius: 15px;
-	padding: 4px 11px;
+.box_list_items {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	width: 250px;
+	height: 230px;
+	margin: 10px 10px;
+	border-radius: 10px 10px 0 0;
+	background-color: #0E1529;
+	border-bottom: 4px solid #0E66C0;
 }
 
-.languagen_list {
-	background-color: #1856FF;
-}
-
-.tools_list {
-	background-color: #1844FF;
-}
-
-.others_list {
-	background-color: #1822FF;
+.tool_img {
+	width: 80px;
 }
 
 @keyframes particles_mov {
