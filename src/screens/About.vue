@@ -9,9 +9,17 @@
 					<h2 id="myRole">{{aboutMe.roles}}</h2>				
 				</section>
 				<section class="section_Branding">
-					<img id="main_branding" src="../assets/imgs/brandingNeon.png">
-					<img id="particle1" class="particles" src="../assets/imgs/particle1.png">
-					<img id="particle2" class="particles" src="../assets/imgs/particle2.png">
+					<img
+						id="main_branding"
+						src="../assets/imgs/brandingNeon.png">
+					<img
+						id="particle1"
+						class="particles"
+						src="../assets/imgs/particle1.png">
+					<img
+						id="particle2"
+						class="particles"
+						src="../assets/imgs/particle2.png">
 				</section>
 			</section>
 			<section class="skills">
@@ -42,39 +50,30 @@
 			</section>
 		</section>		
 	</section>
-
 </template>
-
 <script>
-
-import Loading from '../components/loading.vue'
+import Loading from '../components/loading.vue';
 
 export default {
-
 	name: 'Projects',
-
 	data() {
 		return {
 			aboutMe: {},
 			loading: true
 		}
 	},
-
     components: {
         Loading
     },
-
 	created() {
-
-		this.$http.get('http://cdn-istatics.herokuapp.com/aboutMe').then(({ data }) => {
-			this.aboutMe = data;
-			this.loading = false;
-		}, err => console.log(err))
+		this.$http.get('http://cdn-istatics.herokuapp.com/aboutMe')
+			.then(({ data }) => {
+				this.aboutMe = data;
+				this.loading = false;
+			}, err => console.log(err))
 	},
 }
-
 </script>
-
 <style scoped>
 
 * {

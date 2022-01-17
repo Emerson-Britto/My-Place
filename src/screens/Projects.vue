@@ -6,17 +6,39 @@
 			:filterList="filterList"
 			:btnList="btnList">
 		</ProjectsFilter>
+		<p
+			class="projectCounter"
+			v-show="filteredProjects.length"
+		>
+			Exibindo {{ filteredProjects.length }} Projetos 
+			para ({{ filterList.join(', ') || "All" }})
+		</p>
 		<section id="projects_list">
-			<section class="projects" :key="index" v-for="(project, index) in filteredProjects">
-				<FieldUsedTools class="hidden_mobile" :toolsList="project.featuredTools"></FieldUsedTools>
+			<section 
+				class="projects" 
+				:key="index"
+				v-for="(project, index) in filteredProjects"
+			>
+				<FieldUsedTools
+					class="hidden_mobile"
+					:toolsList="project.featuredTools"
+				/>
 				<section class="allTools_and_projectView">
 					<ul class="allTools_viewList">
-						<li v-for="(tool, index) in project.allTools" :key="index">{{ tool }}</li>
+						<li
+							v-for="(tool, index) in project.allTools"
+							:key="index"
+						>
+							{{ tool }}
+						</li>
 					</ul>
-					<ProjectView :project="project.projectView"></ProjectView>					
+					<ProjectView :project="project.projectView"></ProjectView>
 				</section>
 			</section>
-			<section v-show="!filteredProjects.length" class="project_noFound">
+			<section
+				v-show="!filteredProjects.length"
+				class="project_noFound"
+			>
 				<img :src="noFound.img">
 				<p>{{ noFound.msg }}</p>
 			</section>
@@ -24,16 +46,14 @@
 		</section>
 	</section>
 </template>
-
 <script>
-import ProjectsFilter from '../components/projects-filter.vue'
-import FieldUsedTools from '../components/verticalField-usedTools.vue'
-import ProjectView from '../components/project-view.vue'
-import Loading from '../components/loading.vue'
+import ProjectsFilter from '../components/projects-filter.vue';
+import FieldUsedTools from '../components/verticalField-usedTools.vue';
+import ProjectView from '../components/project-view.vue';
+import Loading from '../components/loading.vue';
 
 export default {
 	name: 'Projects',
-
 	data() {
 		return {
 			filterList: [],
@@ -43,29 +63,24 @@ export default {
 			noFound: {}
 		}
 	},
-
     components: {
         ProjectsFilter,
         ProjectView,
         FieldUsedTools,
         Loading
     },
-
 	created() {
-
-		this.$http.get('https://cdn-istatics.herokuapp.com/meProjects').then(({data}) => {
-			this.projects = data.projects;
-			this.btnList = ['All', ...data.filterOptions];
-			this.noFound = data.noFound;
-			this.loading = false;
-		}, err => console.log(err))
+		this.$http.get('https://cdn-istatics.herokuapp.com/meProjects')
+			.then(({data}) => {
+				this.projects = data.projects;
+				this.btnList = ['All', ...data.filterOptions];
+				this.noFound = data.noFound;
+				this.loading = false;
+			}, err => console.log(err))
 	},
-
 	computed: {
 		filteredProjects() {
-
 			return this.projects.filter(project => {
-
 				return project.allTools.some(tool =>
 					this.filterList.includes(tool) || !this.filterList.length
 				)
@@ -73,28 +88,30 @@ export default {
 		}
 	}
 }
-
 </script>
-
 <style scoped>
-
 .section_project {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 #projectsFilter {
 	margin: 20vh 30px 0 30px;
 }
 
+.projectCounter {
+	color: white;
+	font-size: 1.1em;
+	margin: 40px 0;
+}
+
 #projects_list {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-top: 10vh;
 	width: 980px;
 }
 
@@ -103,7 +120,7 @@ export default {
 	justify-content: space-around;
 	margin: 40px 0 40px 25px;
 	width: 100%;
-	height: 40vh;
+	height: 45vh;
 	color: #fff;
 }
 
@@ -111,6 +128,7 @@ export default {
 	display: flex;
 	flex-wrap: wrap-reverse;
 	list-style: none;
+	margin-bottom: 15px;
 }
 
 .allTools_viewList > li {
@@ -204,5 +222,4 @@ export default {
 		margin: 0 20px;
 	}
 }
-
 </style>

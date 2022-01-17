@@ -1,8 +1,6 @@
 <template>
 	<div class="projects_view">
-		<div class="img_container">
-			<img class="project_preview" :src="project.imgPreview">
-		</div>
+		<img class="project_preview" :src="project.imgPreview">
 		<div class="projects_infors">
 			<h2 class="projects_title">{{ project.projTitle }}</h2>
 			<p class="field_lastUpdate-tool">Last Update: {{ project.lastUpdate }}</p>
@@ -36,22 +34,16 @@ export default {
 
 .projects_view {
 	display: flex;
-	border: 3px solid #1913A2;
 	width: 95%;
 	height: 84%;
 	border-radius: 10px;
-	overflow: hidden;
-}
-
-.img_container {
-	overflow: hidden;
-	width: 50%;
-	height: 100%;
-	background-color: black;
 }
 
 .project_preview {
-	width: 100%;
+	width: 50%;
+	height: 95%;
+	border-radius: 15px;
+	box-shadow: 1px 1px 30px black;
 }
 
 .projects_infors {
@@ -64,7 +56,7 @@ export default {
 }
 	
 .field_lastUpdate-tool {
-	color: #424444;
+	color: #595D71;
 	font-size: 0.9em;
 	margin: 10px 0;
 }

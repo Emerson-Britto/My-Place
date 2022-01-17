@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "vue-cli-service serve",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
+    "serve": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
     "hero": "npm install && node server.js",
     "servejs": "vue-cli-service build && node server.js"
   },

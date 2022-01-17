@@ -40,10 +40,7 @@ export default {
 	align-items: center;
 	width: 40px;
 	height: 40px;
-	border-radius: 50%;
 	margin: 10px 0;
-	background-color: #0B1336;
-	overflow: ;
 }
 
 .usedTools:hover .tool_name {
@@ -56,8 +53,10 @@ export default {
 
 .tool_name {
 	display: none;
+	text-align: right;
 	position: absolute;
-	left: -60px;
+	width: 120px;
+	left: -125px;
 }
 
 </style>
